@@ -11,9 +11,15 @@ export default class TodoContainer extends Component {
           { todos.map(({ task, id }) => (
             <label htmlFor={ id } key={id}>
               <li>
-              {task}
-              <input id={ id } onChange={didClickFavorite} type="checkbox" name="fave" />
-            </li>
+                {task}
+                <input
+                  id={ id }
+                  onChange={didClickFavorite}
+                  type="checkbox"
+                  name="fave"
+                  checked={ favorites.some((todo) => todo.id === id) }
+                />
+              </li>
             </label>
           )) }
         </ul>
