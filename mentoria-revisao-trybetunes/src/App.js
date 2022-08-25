@@ -2,14 +2,20 @@ import React from 'react';
 import TodoContainer from './components/TodoContainer';
 import FavoritesContainer from './components/FavoritesContainer';
 import './App.css';
-import { addTodo, FAVE, getTodos, removeTodo, TODO } from './services/localStorage';
+import {
+  addTodo,
+  FAVE,
+  getTodos,
+  removeTodo,
+  TODO,
+} from './services/localStorage';
 
 class App extends React.Component {
   state = {
     task: '',
     todos: [],
-    favorites: []
-  }
+    favorites: [],
+  };
 
   componentDidMount() {
     const todos = getTodos(TODO);
@@ -17,14 +23,14 @@ class App extends React.Component {
     this.setState({
       todos,
       favorites,
-    })
+    });
   }
 
   clearInput = () => {
     this.setState({
       task: '',
-    })
-  }
+    });
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -34,15 +40,15 @@ class App extends React.Component {
     const newList = getTodos(TODO);
     this.setState({
       todos: newList,
-    })
+    });
     this.clearInput();
-  }
+  };
 
   handleChange = ({ target: { value } }) => {
     this.setState({
       task: value,
-    })
-  }
+    });
+  };
 
   didClickFavorite = ({ target }) => {
     const { checked } = target;
@@ -55,8 +61,8 @@ class App extends React.Component {
     }
     this.setState({
       favorites: getTodos(FAVE),
-    })
-  }
+    });
+  };
 
   didClickUnfavorite = ({ target }) => {
     // const { favorites } = this.state;
@@ -64,15 +70,16 @@ class App extends React.Component {
     removeTodo(+target.id);
     this.setState({
       favorites: getTodos(FAVE),
-    })
-  }
+    });
+  };
 
   render() {
     const { task, todos, favorites } = this.state;
     return (
       <div>
         <form className="forms" onSubmit={this.handleSubmit}>
-          <input className="task-input"
+          <input
+            className="task-input"
             type="text"
             placeholder="Adicionar tarefa..."
             value={task}
@@ -84,16 +91,16 @@ class App extends React.Component {
         <main className="main-container">
           <TodoContainer
             todos={todos}
-            favorites={ favorites }
-            didClickFavorite={ this.didClickFavorite }
+            favorites={favorites}
+            didClickFavorite={this.didClickFavorite}
           />
           <FavoritesContainer
-            favorites={ favorites }
-            didClickUnfavorite={ this.didClickUnfavorite }
+            favorites={favorites}
+            didClickUnfavorite={this.didClickUnfavorite}
           />
         </main>
       </div>
-    )
+    );
   }
 }
 
