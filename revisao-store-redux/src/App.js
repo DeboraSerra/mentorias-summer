@@ -10,7 +10,6 @@ import Header from './components/Header';
 function App() {
   return (
     <div className="App">
-      <Header />
       <Switch>
         <Route exact path="/" component={ PLP } />
         <Route path="/shopping-cart" component={ Cart } />

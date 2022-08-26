@@ -48,10 +48,11 @@ button:active {
 
 .main {
   margin: auto;
-  width: 90%;
+  width: 100%;
 }
 
 .PLP_main {
+  width: 90%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;

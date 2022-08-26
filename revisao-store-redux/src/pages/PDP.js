@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Attributes from '../components/Attributes';
 import Gallery from '../components/Gallery';
+import Header from '../components/Header';
 import { addToCart, fetchDetails } from '../redux/actions';
 
 class PDP extends React.Component {
@@ -27,7 +28,7 @@ class PDP extends React.Component {
   }
 
   render() {
-    const { loading, product } = this.props;
+    const { loading, product, history } = this.props;
     console.log({ product, loading });
     const { attributes, available_quantity: availableQnt, pictures, price,
       title, warranty, shipping } = product;
@@ -36,6 +37,7 @@ class PDP extends React.Component {
       <main>
         {loading ? <p>Carregando...</p> : (
           <section>
+            <Header history={ history } />
             <section>
               <h2>{product.title}</h2>
               <p>{`Quantidade disponível: ${availableQnt}`}</p>
