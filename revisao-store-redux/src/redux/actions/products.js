@@ -13,9 +13,10 @@ const fetchProducts = (categoryId, query) => async (dispatch) => {
   const catId = categoryId ? `category=${categoryId}` : '';
   const que = query ? `q=${query}` : '';
   const url = `https://api.mercadolibre.com/sites/MLB/search?${catId}${catId && que ? '&' : ''}${que}`;
+  console.log(url)
   const response = await fetch(url);
   const products = await response.json();
-  return dispatch(saveProds(products));
+  return dispatch(saveProds(products.results));
 }
 
 export default fetchProducts;
