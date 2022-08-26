@@ -7,17 +7,22 @@ const initialSt = {
 const cartReducer = (state = initialSt, { type, payload }) => {
   switch (type) {
     case ADD_CART:
-      const cart = state.map((product) => {
-        if (product.id === payload.item.id) {
-          return { ...product, qnt: product.qnt + 1 }
-        } return product;
-      })
+      let cart;
+      if (state.cart.some(({ id }) => id === payload.id)) {
+        cart = state.cart.map((product) => {
+          if (product.id === payload.id) {
+            return { ...product, qnt: product.qnt + 1 }
+          } return product;
+        })
+      } else {
+        cart = [...state.cart, payload]
+      }
       return {
         ...state,
         cart,
       };
     case REMOVE_CART:
-      const newCart = state.cart.filter((product) => product.id !== payload.intem.id);
+      const newCart = state.cart.filter((product) => product.id !== payload.id);
       return {
         ...state,
         cart: newCart,
@@ -25,9 +30,9 @@ const cartReducer = (state = initialSt, { type, payload }) => {
     case INCREASE:
       const increaseCart = state.cart.map((product) => {
         if (product.id === payload.item.id) {
-          const newQnt = product.qnt + payload.qnt < payload.item.availableQuantity
+          const newQnt = product.qnt + payload.qnt < payload.item.available_quantity
             ? product.qnt + payload.qnt
-            : payload.item.availableQuantity;
+            : payload.item.available_quantity;
           return { ...product, qnt: newQnt };
         } return product;
       });

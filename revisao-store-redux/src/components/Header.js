@@ -5,13 +5,14 @@ import style from '../styles/Header.module.css';
 
 class Header extends React.Component {
   render() {
-    const { history, cart } = this.props;
+    const { cart } = this.props;
+    const amount = cart.reduce((acc, { qnt }) => acc + qnt, 0)
     return (
       <header className={ style.header }>
-        <MdArrowBackIos className={ style.back_icon } onClick={ () => history.goBack() } />
+        <MdArrowBackIos className={ style.back_icon } onClick={ () => window.location.pathname = '/' } />
         <h1>Summer Rules!</h1>
-        <section className={ style.cart } onClick={ () => history.push('/shopping-cart')}>
-          <p>{cart.reduce((acc, { qnt }) => acc + qnt, 0)}</p>
+        <section className={ style.cart } onClick={ () => window.location.pathname = '/shopping-cart' }>
+          <p>{amount}</p>
           <lord-icon
             src="https://cdn.lordicon.com/slkvcfos.json"
             trigger="hover"

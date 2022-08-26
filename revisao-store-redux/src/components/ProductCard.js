@@ -21,7 +21,7 @@ class ProductCard extends React.Component {
         </section>
         <section className={ style.btn_sect }>
           <Link className={ style.dets_link } to={ `/product-details/${id}` }>Mais detalhes</Link>
-          <button type="button">Adicionar ao carrinho</button>
+          <button type="button" onClick={ this.handleClick }>Adicionar ao carrinho</button>
         </section>
       </section>
     )

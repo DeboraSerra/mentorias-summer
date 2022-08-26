@@ -2,7 +2,7 @@ import { FETCH_DETS, SAVE_DETS } from '../actions/details';
 
 const initialSt = {
   details: {},
-  loading: false,
+  loading: true,
 }
 
 const detailsReducer = (state = initialSt, { payload, type }) => {
