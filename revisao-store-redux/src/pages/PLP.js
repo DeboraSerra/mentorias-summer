@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Categories from '../components/Categories';
+import ProductCard from '../components/ProductCard';
 
 class PLP extends React.Component {
 
@@ -8,12 +9,12 @@ class PLP extends React.Component {
     const { products, loading } = this.props;
     console.log({ loading, products })
     return (
-      <main>
+      <main className="main">
         <Categories />
-        {!loading && products.length > 0 && (
-          <section>
-            {products.map(({ title, id }) => (
-              <p key={ id }>{title}</p>
+        {loading ? <p>Carregando...</p> : (
+          <section className="PLP_main">
+            {products.map((product) => (
+              <ProductCard key={ product.id } product={product} />
             ))}
           </section>
         )}

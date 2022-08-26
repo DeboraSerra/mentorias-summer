@@ -1,0 +1,62 @@
+.category_sect {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category_sect form {
+  margin-bottom: 32px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.category_sect input {
+  flex-grow: 1;
+  margin-right: 12px;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--light-gray);
+  padding: 12px 24px;
+}
+
+.category_sect form button {
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  border: none;
+  background-color: var(--dark-green);
+  border-radius: 8px;
+  color: white;
+  font-family: monospace;
+  box-shadow: 5px 5px 10px var(--gray1);
+  cursor: pointer;
+}
+
+.btn_sect {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 122px);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.btn_sect button {
+  width: 120px;
+  height: 130px;
+  margin: 12px;
+  border: none;
+  background-color: var(--dark-green);
+  border-radius: 8px;
+  color: white;
+  font-family: monospace;
+  box-shadow: 5px 5px 10px var(--gray1);
+  cursor: pointer;
+}
+
+.category_sect p {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
