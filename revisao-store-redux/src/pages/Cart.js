@@ -4,6 +4,7 @@ import CartCard from '../components/CartCard';
 import Header from '../components/Header';
 
 class Cart extends React.Component {
+
   render() {
     const { cart, history } = this.props;
     return (

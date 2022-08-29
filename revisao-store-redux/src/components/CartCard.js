@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { decreaseQnt, increaseQnt } from '../redux/actions';
+import { decreaseQnt, increaseQnt, removeFromCart } from '../redux/actions';
 
 class CartCard extends React.Component {
   render() {
@@ -14,7 +14,11 @@ class CartCard extends React.Component {
         <section>
           <button type="button" onClick={ () => dispatch(increaseQnt(product, 1)) }>+</button>
           <p>{qnt}</p>
-          <button type="button" onClick={ () => dispatch(decreaseQnt(product, 1)) }>-</button>
+          <button type="button" onClick={ () => qnt === 1
+            ? dispatch(removeFromCart(product))
+            : dispatch(decreaseQnt(product, 1)) }>
+              -
+          </button>
         </section>
         <p>{`Preço total: R$${qnt * price}`}</p>
       </section>

@@ -9,12 +9,13 @@ class ProductCard extends React.Component {
     const { product, dispatch } = this.props;
     dispatch(addToCart({ ...product, qnt: 1 }));
   }
+
   render() {
     const { product: {title, id, price, shipping: { free_shipping: freeShipping }, thumbnail} } = this.props;
     return (
       <section className={ style.card }>
         <h3>{title}</h3>
-        <img src={ thumbnail } alt={ title } />
+        <img src={ thumbnail.replace('I.jpg', 'W.jpg') } alt={ title } />
         <section className={ style.price_sect }>
           <p>{`R$${price}`}</p>
           {freeShipping && <p>Frete Grátis</p>}
