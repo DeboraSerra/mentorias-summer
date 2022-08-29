@@ -14,6 +14,11 @@
   --ocean-blueish: rgb(18, 104, 129);
 }
 
+::selection {
+  background-color: var(--light-old-pink);
+  color: var(--gray4);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
