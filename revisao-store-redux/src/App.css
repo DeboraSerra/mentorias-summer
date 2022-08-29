@@ -47,7 +47,7 @@ button:active {
 }
 
 .main {
-  margin: auto;
+  margin: 0 auto 64px;
   width: 100%;
 }
 

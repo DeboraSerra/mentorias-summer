@@ -10,7 +10,7 @@ class Header extends React.Component {
     return (
       <header className={ style.header }>
         <MdArrowBackIos className={ style.back_icon } onClick={ () => history.goBack() } />
-        <h1>Summer Rules!</h1>
+        <h1 onClick={ () => history.push('/') }>Summer Rules!</h1>
         <section className={ style.cart } onClick={ () => history.push('/shopping-cart') }>
           <p>{amount}</p>
           <lord-icon
