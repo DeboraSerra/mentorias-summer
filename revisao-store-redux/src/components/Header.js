@@ -5,7 +5,7 @@ import style from '../styles/Header.module.css';
 
 class Header extends React.Component {
   render() {
-    const {history } = this.props;
+    const { history } = this.props;
     return (
       <header className={ style.header }>
         <MdArrowBackIos className={ style.back_icon } onClick={ () => history.goBack() } />
