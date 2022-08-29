@@ -1,38 +1,59 @@
-.App {
-  text-align: center;
+:root {
+  --dark-green: rgb(3, 107, 82);
+  --trybe-green: #0fa36b;
+  --light-green: rgb(47, 193, 140);
+  --light-gray: rgb(225, 229, 235);
+  --gray1: rgb(62, 66, 75);
+  --gray2: rgb(40, 42, 47);
+  --gray3: rgb(30, 31, 36);
+  --gray4: rgb(26, 27, 28);
+  --old-pink: rgb(144, 80, 79);
+  --light-old-pink: rgb(190, 144, 122);
+  --ocean-blue: rgb(39, 91, 91);
+  --teal: rgb(19, 162, 128);
+  --ocean-blueish: rgb(18, 104, 129);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: monospace;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+::-webkit-scrollbar {
+  height: 8px;
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--teal);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: var(--light-gray);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  box-shadow: 2px 2px 8px var(--gray1);
+}
+
+.main {
+  margin: auto;
+  width: 100%;
+}
+
+.PLP_main {
+  width: 90%;
+  margin: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  flex-wrap: wrap;
 }
