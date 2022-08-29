@@ -13,6 +13,8 @@ class Categories extends React.Component {
   }
 
   componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchCategories());
   }
 
   handleChange = ({ target: { value } }) => {
@@ -64,4 +66,9 @@ class Categories extends React.Component {
   }
 }
 
-export default Categories;
+const mapStateToProps = (state) => ({
+  categories: state.categories.categories,
+  loading: state.categories.loading,
+})
+
+export default connect(mapStateToProps)(Categories);
