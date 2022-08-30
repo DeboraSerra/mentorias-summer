@@ -15,7 +15,7 @@ const fetchProducts = (categoryId, query) => async (dispatch) => {
   const url = `https://api.mercadolibre.com/sites/MLB/search?${category}${category && q ? '&' : ''}${q}`;
   const response = await fetch(url);
   const products = await response.json();
-  return dispatch(saveProducts(products));
+  return dispatch(saveProducts(products.results));
 }
 
 // 'https://api.mercadolibre.com/sites/MLB/search?category=xablau&q=xablau'

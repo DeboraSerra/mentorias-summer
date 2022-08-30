@@ -8,13 +8,16 @@ class PLP extends React.Component {
 
   render() {
     const { products, loading, history } = this.props;
+    console.log(products)
     return (
       <main className="main">
         <Header history={ history } />
         <Categories />
         {loading ? <p>Carregando...</p> : (
           <section className="PLP_main">
-            produtos
+            {products.map((product) => (
+              <ProductCard product={ product } key={ product.id } />
+            ))}
           </section>
         )}
       </main>
@@ -22,4 +25,9 @@ class PLP extends React.Component {
   }
 }
 
-export default PLP;
+const mapStateToProps = (state) => ({
+  products: state.products.products,
+  loading: state.products.loading,
+})
+
+export default connect(mapStateToProps)(PLP);

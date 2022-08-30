@@ -31,9 +31,16 @@ class Categories extends React.Component {
   }
 
   handleClickSearch = (e) => {
+    e.preventDefault();
+    const { dispatch } = this.props;
+    const { category, input } = this.state;
+    dispatch(fetchProducts(category, input));
   }
 
   handleClickCategory = () => {
+    const { category, input } = this.state;
+    const { dispatch } = this.props;
+    dispatch(fetchProducts(category, input));
   }
 
   render() {
