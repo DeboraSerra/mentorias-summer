@@ -17,12 +17,14 @@ const cartReducer = (state = initialSt, { type, payload }) => {
       } else {
         cart = [...state.cart, payload];
       }
+      localStorage.setItem('cart', JSON.stringify(cart));
       return {
         ...state,
         cart,
       }
     case REMOVE_CART:
       const newCart = state.cart.filter((product) => product.id !== payload.id);
+      localStorage.setItem('cart', JSON.stringify(newCart));
       return {
         ...state,
         cart: newCart,
@@ -35,6 +37,7 @@ const cartReducer = (state = initialSt, { type, payload }) => {
           return { ...product, qnt: newQnt < available_quantity ? newQnt : available_quantity }
         } return product;
       })
+      localStorage.setItem('cart', JSON.stringify(increaseCart));
       return {
         ...state,
         cart: increaseCart,
@@ -46,6 +49,7 @@ const cartReducer = (state = initialSt, { type, payload }) => {
           return { ...product, qnt: newQnt }
         } return product;
       })
+      localStorage.setItem('cart', JSON.stringify(decreaseCart));
       return {
         ...state,
         cart: decreaseCart,

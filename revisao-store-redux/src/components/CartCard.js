@@ -17,7 +17,7 @@ class CartCard extends React.Component {
     }
   }
   render() {
-    const { product, dispatch } = this.props;
+    const { product } = this.props;
     const { thumbnail, price, title, qnt } = product;
     return (
       <section className={ style.card }>
