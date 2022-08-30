@@ -1,0 +1,67 @@
+.main {
+  width: 80%;
+  margin: auto;
+}
+
+.main h1 {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--light-old-pink);
+  padding-bottom: 24px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--light-gray);
+  padding-bottom: 24px;
+  font-size: 1.1rem;
+}
+
+.info_sect {
+  flex-grow: 1;
+  margin-left: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.qnt_sect {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.qnt_sect button {
+  border: none;
+  background-color: var(--dark-green);
+  color: white;
+  font-family: monospace;
+  padding: 4px;
+  font-size: 1.1rem;
+  width: 25px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.price {
+  font-size: 1.4rem;
+}
+
+.button {
+  margin: 24px 0;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  border: none;
+  background-color: var(--dark-green);
+  border-radius: 8px;
+  color: white;
+  font-family: monospace;
+  box-shadow: 5px 5px 10px var(--gray1);
+  cursor: pointer;
+}
