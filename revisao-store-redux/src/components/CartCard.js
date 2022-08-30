@@ -4,6 +4,18 @@ import { decreaseQnt, increaseQnt, removeFromCart } from '../redux/actions';
 import style from '../styles/Cart.module.css';
 
 class CartCard extends React.Component {
+  handleIncrease = () => {
+    const { dispatch, product } = this.props;
+    dispatch(increaseQnt(product, 1));
+  }
+  handleDecrease = () => {
+    const { dispatch, product } = this.props;
+    if (product.qnt === 1) {
+      dispatch(removeFromCart(product));
+    } else {
+      dispatch(decreaseQnt(product, 1));
+    }
+  }
   render() {
     const { product, dispatch } = this.props;
     const { thumbnail, price, title, qnt } = product;
@@ -16,10 +28,10 @@ class CartCard extends React.Component {
           <p>{`Preço total: R$${qnt * price}`}</p>
         </section>
           <section className={ style.qnt_sect }>
-            <button type="button">+</button>
+            <button type="button" onClick={ this.handleIncrease }>+</button>
             <p>{qnt}</p>
-            <button type="button">
-                -
+            <button type="button" onClick={ this.handleDecrease }>
+              -
             </button>
           </section>
       </section>

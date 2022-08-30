@@ -7,16 +7,19 @@ import style from '../styles/Cart.module.css';
 class Cart extends React.Component {
 
   render() {
-    const { history } = this.props;
+    const { history, cart } = this.props;
+    const price = cart.reduce((acc, { qnt, price }) => acc + (qnt * price), 0);
     return (
       <section>
         <Header history={ history } />
         <section className={ style.main }>
           <h1>Carrinho de compras</h1>
            <section>
-            carrinho
+            {cart.map((product) => (
+              <CartCard product={ product } key={ product.id } />
+            ))}
            </section>
-          <p className={ style.price }>{`Valor total: R$$0`}</p>
+          <p className={ style.price }>{`Valor total: R$${price}`}</p>
           <button className={ style.button } type="button" onClick={ () => history.push('/checkout') }>Ir para checkout</button>
         </section>
       </section>
@@ -24,4 +27,8 @@ class Cart extends React.Component {
   }
 }
 
-export default Cart;
+const mapStateToProps = (state) => ({
+  cart: state.cart.cart,
+})
+
+export default connect(mapStateToProps)(Cart);
