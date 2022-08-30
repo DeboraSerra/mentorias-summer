@@ -14,6 +14,8 @@ class PDP extends React.Component {
     }
   }
   componentDidMount() {
+    const { dispatch, match: { params: { id } } } = this.props;
+    dispatch(fetchDetails(id));
   }
 
   handleChange = ({ target: { value } }) => {
@@ -66,4 +68,9 @@ class PDP extends React.Component {
   }
 }
 
-export default PDP;
+const mapStateToProps = (state) => ({
+  loading: state.details.loading,
+  product: state.details.details,
+})
+
+export default connect(mapStateToProps)(PDP);

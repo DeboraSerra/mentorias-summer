@@ -9,7 +9,7 @@ const saveDetails = (details) => ({
 })
 
 const fetchDetails = (productId) => async (dispatch) => {
-  dispatch(fetchDetailsAction());
+  dispatch(fetchDetailsAction);
   const response = await fetch(`https://api.mercadolibre.com/items/${productId}`);
   const details = await response.json();
   return dispatch(saveDetails(details));
