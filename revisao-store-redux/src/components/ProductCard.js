@@ -6,6 +6,8 @@ import style from '../styles/ProductCard.module.css';
 
 class ProductCard extends React.Component {
   handleClick = () => {
+    const { dispatch, product } = this.props;
+    dispatch(addToCart({ ...product, qnt: 1 }));
   }
 
   render() {
@@ -27,4 +29,4 @@ class ProductCard extends React.Component {
   }
 }
 
-export default ProductCard;
+export default connect()(ProductCard);

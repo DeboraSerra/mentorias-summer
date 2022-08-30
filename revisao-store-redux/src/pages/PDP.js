@@ -23,6 +23,9 @@ class PDP extends React.Component {
   }
 
   handleClick = () => {
+    const { dispatch, product } = this.props;
+    const { quantity } = this.state;
+    dispatch(addToCart({ ...product, qnt: quantity }));
   }
 
   render() {
